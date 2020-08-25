@@ -56,8 +56,8 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(
     `
-    mongodb+srv://${process.env.DB_USER}:${process.env.DB_PW}@cluster0.eyhaq.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority
-    
+    mongodb+srv://${process.env.DB_USER}:${process.env.DB_PW}@cluster0.wi5b8.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority
+
     `
   )
   .then(() => {
@@ -66,5 +66,5 @@ mongoose
   })
   .catch((err) => {
     console.log("failed to connect to db");
-    console.log(err);
+    console.error(err);
   });
