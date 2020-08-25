@@ -26,8 +26,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/items", itemsRoutes);
-app.use("/api/users", usersRoutes);
+//app.use("/api/items", itemsRoutes);
+//app.use("/api/users", usersRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError(
