@@ -17,6 +17,12 @@ const Links = () => {
       <li>
         <NavLink to="/cart">Cart</NavLink>
       </li>
+      <li>
+        <NavLink to="/login">Login</NavLink>
+      </li>
+      <li>
+        <NavLink to="/register">Register</NavLink>
+      </li>
     </ul>
   );
 };
