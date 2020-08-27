@@ -32,7 +32,6 @@ const Home = () => {
 
   return (
     <>
-      <div>{cartItems}</div>
       <ul className="home__items-list">
         {homeItems.map((item) => (
           <Item
