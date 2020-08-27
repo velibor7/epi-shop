@@ -40,6 +40,7 @@ const Home = () => {
             title={item.title}
             category={item.category}
             price={item.price}
+            image={item.image}
           />
         ))}
       </ul>

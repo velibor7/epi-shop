@@ -2,6 +2,8 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 
+import ImageUpload from "../../shared/components/FormElements/ImageUpload";
+
 import "./NewItem.css";
 
 const NewItem = () => {

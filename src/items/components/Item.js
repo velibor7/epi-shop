@@ -14,7 +14,11 @@ const Item = (props) => (
       {(context) => (
         <li className="item__li">
           <Card className="item__card">
-            <img src="" alt={props.title} className="item__image" />
+            <img
+              src={`http://localhost:5000/${props.image}`}
+              alt={props.title}
+              className="item__image"
+            />
             <h2>{props.title}</h2>
             <p className="item__price">{props.price}</p>
             <Link
