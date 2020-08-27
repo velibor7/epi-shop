@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import Item from "../components/Item";
 
+import { CartContext } from "../../shared/context/cart-context";
 import "./Home.css";
 
 const Home = () => {
   const [homeItems, setHomeItems] = useState([]);
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/items/", {
@@ -27,6 +29,7 @@ const Home = () => {
 
   return (
     <>
+      <div>{cartItems}</div>
       <ul className="home__items-list">
         {homeItems.map((item) => (
           <Item

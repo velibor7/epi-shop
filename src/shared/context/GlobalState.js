@@ -7,6 +7,7 @@ const GlobalState = (props) => {
   const [state, dispatch] = useReducer(cartReducer, { cart: [] });
 
   const addItemToCart = (item) => {
+    console.log("trying to add to cart");
     dispatch({ type: ADD_ITEM, item: item });
   };
 
