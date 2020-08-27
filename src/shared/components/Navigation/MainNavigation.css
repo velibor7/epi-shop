@@ -1,0 +1,28 @@
+.main-navigation__menu-btn {
+    display: block;
+}
+
+
+.main-navigation__header-nav {
+    display: none;
+}
+
+.main-navigation__drawer-nav {
+
+    display: block;
+}
+
+@media (min-width: 700px) {
+    .main-navigation__menu-btn {
+        display: none;
+    }
+
+    .main-navigation__header-nav {
+        display: block;
+    }
+
+    .main-navigation__drawer-nav {
+
+        display: none;
+    }
+}
