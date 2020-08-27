@@ -8,7 +8,7 @@ const Home = () => {
   const [homeItems, setHomeItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://locahost:5000/api/items/", {
+    fetch("http://localhost:5000/api/items/", {
       method: "GET",
       mode: "cors",
       headers: {
@@ -19,7 +19,10 @@ const Home = () => {
         const resJson = await res.json();
         setHomeItems(resJson.items);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.log("err here");
+        console.error(err);
+      });
   }, []);
 
   return (

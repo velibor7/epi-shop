@@ -16,18 +16,17 @@ app.use(bodyParser.json());
 //app.use("/uploads/images", express.static(path.join("uploads", "images")));
 
 app.use((req, res, next) => {
-  // req.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+    "Access-Control-Allow-Headers,Access-Control-Request-Method, Access-Control-Allow-Origin, Access-Control-Request-Headers, Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
   res.setHeader("Access-Control-Allow-Methods", "*");
   next();
 });
 
-//app.use("/api/items", itemsRoutes);
-//app.use("/api/users", usersRoutes);
+app.use("/api/items", itemsRoutes);
+app.use("/api/users", usersRoutes);
 
 app.use((req, res, next) => {
   const error = new HttpError(

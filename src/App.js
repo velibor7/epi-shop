@@ -1,8 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import Home from "./items/pages/Home";
+import MainNavigation from "./shared/components/Navigation/MainNavigation";
+import NewItem from "./items/pages/NewItem";
+
 import "./App.css";
 
 function App() {
@@ -10,7 +12,14 @@ function App() {
     <>
       <Router>
         <MainNavigation />
-        <Home></Home>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/new" exact>
+            <NewItem></NewItem>
+          </Route>
+        </Switch>
       </Router>
     </>
   );
