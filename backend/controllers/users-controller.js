@@ -17,13 +17,14 @@ const getUsers = async (req, res, next) => {
   res.json({ users: users.map((user) => user.toObject({ getters: true })) });
 };
 
-const signup = async (req, res, next) => {
+const register = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return next(new HttpError("Invalid inputs, check your data", 422));
   }
 
-  const { name, email, password } = req.body;
+  const { fullname, email, password } = req.body;
+  console.log(req.body);
 
   let existingUser;
   try {
@@ -52,10 +53,10 @@ const signup = async (req, res, next) => {
   }
 
   const createdUser = new User({
-    name,
+    fullname,
     email,
     password: hashedPassword,
-    cocktails: [],
+    items: [],
   });
 
   try {
@@ -97,9 +98,9 @@ const login = async (req, res, next) => {
 
   try {
     existingUser = await User.findOne({ email: email });
+    console.log(existingUser);
   } catch (err) {
     const error = new HttpError("Logging in failed, try again later", 500);
-
     return next(error);
   }
 
@@ -160,5 +161,5 @@ const login = async (req, res, next) => {
 };
 
 exports.getUsers = getUsers;
-exports.signup = signup;
+exports.register = register;
 exports.login = login;

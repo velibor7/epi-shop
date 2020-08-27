@@ -9,14 +9,14 @@ const router = express.Router();
 router.get("", usersController.getUsers);
 
 router.post(
-  "/signup",
+  "/register",
   // fileUpload.single("image"),
   [
-    check("name").not().isEmpty(),
+    check("fullname").not().isEmpty(),
     check("email").normalizeEmail().isEmail(),
     check("password").isLength({ min: 6 }),
   ],
-  usersController.signup
+  usersController.register
 );
 
 router.post("/login", usersController.login);

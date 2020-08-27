@@ -1,7 +1,59 @@
 import React from "react";
+import { useHistory, Link } from "react-router-dom";
+import { Formik, Field, Form } from "formik";
+
+import "./Auth.css";
 
 const Register = () => {
-  return <div>Register</div>;
+  const history = useHistory();
+
+  return (
+    <Formik
+      initialValues={{
+        fullname: "Testko Testovic",
+        email: "test@test.com",
+        password: "test123",
+      }}
+      onSubmit={(values) => {
+        console.log(values);
+        fetch("http://localhost:5000/api/users/register", {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "*",
+          },
+          body: JSON.stringify({
+            fullname: values.fullname,
+            email: values.email,
+            password: values.password,
+          }),
+        })
+          .then((res) => {
+            console.log(res.json());
+            history.push("/");
+          })
+          .catch((err) => {
+            console.log("Login failed");
+            console.error(err);
+          });
+      }}
+    >
+      <Form className="new-item__form">
+        <label htmlFor="fullname">Full name</label>
+        <Field id="fullname" type="text" name="fullname" />
+        <label htmlFor="email">Email</label>
+        <Field id="email" type="email" name="email" />
+        <label htmlFor="password">Password</label>
+        <Field id="pasword" type="password" name="password" />
+        <button type="submit" className="new-item__submit">
+          Register
+        </button>
+        Already have an account? <Link to="/login">Login</Link>
+      </Form>
+    </Formik>
+  );
 };
 
 export default Register;
