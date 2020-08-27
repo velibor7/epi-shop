@@ -10,32 +10,46 @@ import Cart from "./items/pages/Cart";
 import GlobalState from "./shared/context/GlobalState";
 
 import "./App.css";
+import { AuthContext } from "./shared/context/auth-context";
+import { useAuth } from "./shared/hooks/auth-hook";
 
 const App = () => {
+  const { token, login, logout, userId } = useAuth();
+
   return (
     <>
-      <GlobalState>
-        <Router>
-          <MainNavigation />
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/new">
-              <NewItem></NewItem>
-            </Route>
-            <Route path="/cart">
-              <Cart />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-          </Switch>
-        </Router>
-      </GlobalState>
+      <AuthContext.Provider
+        value={{
+          isLoggedIn: !!token,
+          token: token,
+          userId: userId,
+          login: login,
+          logout: logout,
+        }}
+      >
+        <GlobalState>
+          <Router>
+            <MainNavigation />
+            <Switch>
+              <Route path="/" exact>
+                <Home />
+              </Route>
+              <Route path="/new">
+                <NewItem></NewItem>
+              </Route>
+              <Route path="/cart">
+                <Cart />
+              </Route>
+              <Route path="/login">
+                <Login />
+              </Route>
+              <Route path="/register">
+                <Register />
+              </Route>
+            </Switch>
+          </Router>
+        </GlobalState>
+      </AuthContext.Provider>
     </>
   );
 };

@@ -4,10 +4,13 @@ import Item from "../components/Item";
 
 import { CartContext } from "../../shared/context/cart-context";
 import "./Home.css";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const Home = () => {
   const [homeItems, setHomeItems] = useState([]);
   const { cartItems, setCartItems } = useContext(CartContext);
+
+  const auth = useContext(AuthContext);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/items/", {

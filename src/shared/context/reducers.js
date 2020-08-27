@@ -1,12 +1,13 @@
 export const ADD_ITEM = "ADD_ITEM";
 export const REMOVE_ITEM = "REMOVE_ITEM";
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
 
 const addItemToCart = (item, state) => {
   const updatedCart = [...state.cart];
   const updatedItemIndex = updatedCart.findIndex(
     (foundItem) => foundItem.id === item.id
   );
-  // add price logic
 
   const updatedTotal = state.total;
 

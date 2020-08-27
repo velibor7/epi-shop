@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 
 import "./Auth.css";
+import { AuthContext } from "../../shared/context/auth-context";
 
 const Login = () => {
   const history = useHistory();
+
+  const auth = useContext(AuthContext);
 
   return (
     <Formik
@@ -28,8 +31,10 @@ const Login = () => {
             password: values.password,
           }),
         })
-          .then((res) => {
-            console.log(res.json());
+          .then(async (res) => {
+            const resJson = await res.json();
+            // console.log(resJson.userId);
+            auth.login(resJson.userId, resJson.token);
             history.push("/");
           })
           .catch((err) => {
