@@ -17,7 +17,6 @@ const Login = () => {
         password: "test123",
       }}
       onSubmit={(values) => {
-        console.log(values);
         fetch("http://localhost:5000/api/users/login", {
           method: "POST",
           mode: "cors",

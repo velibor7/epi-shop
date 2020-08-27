@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
-import "./Links.css";
 import { AuthContext } from "../../context/auth-context";
+
+import userIcon from "../../icons/user.svg";
+import exitIcon from "../../icons/exit.svg";
+import "./Links.css";
 
 const Links = () => {
   const auth = useContext(AuthContext);
@@ -34,9 +37,24 @@ const Links = () => {
       )}
       {auth.isLoggedIn && (
         <li>
-          <button type="button" onClick={auth.logout}>
-            Logout
-          </button>
+          <NavLink to="/me">
+            <img
+              src={userIcon}
+              alt="Me"
+              className="links__me"
+              style={{ fill: "white" }}
+            />
+          </NavLink>
+        </li>
+      )}
+      {auth.isLoggedIn && (
+        <li>
+          <img
+            src={exitIcon}
+            alt="Logout"
+            onClick={auth.logout}
+            className="links__logout"
+          />
         </li>
       )}
     </ul>

@@ -1,5 +1,4 @@
-import React, { useState, Fragment, useContext } from "react";
-// import { Link } from "react-router-dom";
+import React, { useState, Fragment } from "react";
 
 import Links from "./Links";
 import Header from "./Header";
@@ -7,14 +6,11 @@ import Drawer from "./Drawer";
 import Backdrop from "../UIElements/Backdrop";
 
 import "./MainNavigation.css";
-import { AuthContext } from "../../context/auth-context";
 
 const MainNavigation = () => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
   const openDrawerHandler = () => setDrawerIsOpen(true);
   const closeDrawerHandler = () => setDrawerIsOpen(false);
-
-  const auth = useContext(AuthContext);
 
   return (
     <Fragment>

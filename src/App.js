@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./items/pages/Home";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import NewItem from "./items/pages/NewItem";
+import Me from "./auth/pages/Me";
 import Login from "./auth/pages/Login";
 import Register from "./auth/pages/Register";
 import Cart from "./items/pages/Cart";
@@ -45,6 +46,9 @@ const App = () => {
               </Route>
               <Route path="/register">
                 <Register />
+              </Route>
+              <Route path="/me">
+                <Me />
               </Route>
             </Switch>
           </Router>

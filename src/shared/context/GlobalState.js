@@ -1,6 +1,5 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 
-import { AuthContext } from "./auth-context";
 import { CartContext } from "./cart-context";
 
 import { cartReducer, ADD_ITEM, REMOVE_ITEM } from "./reducers";
