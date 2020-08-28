@@ -63,6 +63,7 @@ const NewItem = () => {
           </option>
           <option value="skydiving">Skydiving</option>
           <option value="snowboarding">Snowboarding</option>
+          <option value="skateboarding">Skateboarding</option>
         </Field>
 
         <Field name="image" component={FileUpload}></Field>

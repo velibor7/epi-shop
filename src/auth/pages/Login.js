@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 
-import "./Auth.css";
 import { AuthContext } from "../../shared/context/auth-context";
+
+import "./Auth.css";
 
 const Login = () => {
   const history = useHistory();
@@ -13,7 +14,7 @@ const Login = () => {
   return (
     <Formik
       initialValues={{
-        email: "test@test.com",
+        email: "test1@test.com",
         password: "test123",
       }}
       onSubmit={(values) => {
@@ -42,15 +43,17 @@ const Login = () => {
           });
       }}
     >
-      <Form className="new-item__form">
+      <Form className="auth__form">
         <label htmlFor="email">Email</label>
         <Field id="email" type="email" name="email" />
         <label htmlFor="password">Password</label>
         <Field id="pasword" type="password" name="password" />
-        <button type="submit" className="new-item__submit">
+        <button type="submit" className="auth__submit">
           Login
         </button>
-        New here? <Link to="/register">Register</Link>
+        <Link to="/register" className="auth__other">
+          Register
+        </Link>
       </Form>
     </Formik>
   );

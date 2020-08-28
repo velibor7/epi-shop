@@ -1,0 +1,29 @@
+.auth__form {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+input {
+  margin-bottom: 0.7em;
+}
+
+.auth__submit {
+  margin: 1em;
+  display: flex;
+  width: 30%;
+  align-self: center;
+  justify-content: center;
+}
+
+.auth__other {
+  display: flex;
+  align-self: center;
+}
+
+@media (min-width: 700px) {
+  .auth__form {
+    width: 20em;
+  }
+}

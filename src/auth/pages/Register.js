@@ -40,17 +40,19 @@ const Register = () => {
           });
       }}
     >
-      <Form className="new-item__form">
+      <Form className="auth__form">
         <label htmlFor="fullname">Full name</label>
         <Field id="fullname" type="text" name="fullname" />
         <label htmlFor="email">Email</label>
         <Field id="email" type="email" name="email" />
         <label htmlFor="password">Password</label>
         <Field id="pasword" type="password" name="password" />
-        <button type="submit" className="new-item__submit">
+        <button type="submit" className="auth__submit">
           Register
         </button>
-        Already have an account? <Link to="/login">Login</Link>
+        <Link to="/login" className="auth__other">
+          Login
+        </Link>
       </Form>
     </Formik>
   );

@@ -9,7 +9,7 @@ const itemSchema = new Schema({
   price: { type: Number, required: true },
   category: {
     type: String,
-    enum: ["skydiving", "paragliding", "snowboarding"],
+    enum: ["skydiving", "paragliding", "snowboarding", "skateboarding"],
     default: "other",
   },
 });

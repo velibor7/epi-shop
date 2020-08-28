@@ -19,16 +19,17 @@ const Item = (props) => (
               alt={props.title}
               className="item__image"
             />
-            <h2>{props.title}</h2>
-            <p className="item__price">{props.price}</p>
-            <Link
-              to="?category=skydiving"
-              className={`item__category item__category-${props.category}`}
-            >
-              {props.category}
-            </Link>
+            <h2 className="item__title">{props.title}</h2>
             <div className="item__bottom">
+              <p className="item__price">${props.price}</p>
+              <Link
+                to="?category=skydiving"
+                className={`item__category item__category-${props.category}`}
+              >
+                {props.category}
+              </Link>
               <img
+                title="Add to cart"
                 src={cartIcon}
                 alt="Add to cart"
                 className="item__cart-icon"

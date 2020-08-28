@@ -6,20 +6,72 @@
 .item__card {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.item__title {
+  margin: 0.4em;
+  align-self: center;
 }
 
-.item__cart-icon {
-  cursor: pointer;
+.item__price {
+  margin: 0em;
 }
+
 .item__image {
   object-fit: cover;
   width: 100%;
   height: 70%;
 }
 
+.item__bottom {
+  height: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  margin: 0.4em;
+}
+
+.item__category {
+  width: auto;
+  padding: 0.4em;
+  align-self: flex-start;
+  border: 0px solid black;
+  border-radius: 7px;
+}
+.item__category:hover {
+  box-shadow: 1px 1px 3px gray;
+}
+
+.item__category-skydiving {
+  background-color: red;
+}
+
+.item__category-snowboarding {
+  color: white;
+  background-color: blue;
+}
+
+.item__category-skateboarding {
+  background-color: greenyellow;
+}
+
+.item__category-other {
+  background-color: gray;
+}
+
+.item__cart-icon {
+  cursor: pointer;
+  width: 1.7em;
+}
+
+img {
+  object-fit: cover;
+}
 @media (min-width: 700px) {
   .item__li {
-    width: 15em;
-    height: 15em;
+    width: 19em;
+    height: 19em;
   }
 }
