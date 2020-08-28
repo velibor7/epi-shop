@@ -13,9 +13,10 @@ const NewItem = () => {
     <Formik
       initialValues={{
         title: "some title",
-        description: "some description",
-        price: "54543",
-        category: "skydiving",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        price: "1000",
+        category: "other",
         image: "",
       }}
       onSubmit={(values) => {
@@ -64,6 +65,7 @@ const NewItem = () => {
           <option value="skydiving">Skydiving</option>
           <option value="snowboarding">Snowboarding</option>
           <option value="skateboarding">Skateboarding</option>
+          <option value="climbing">Climbing</option>
         </Field>
 
         <Field name="image" component={FileUpload}></Field>

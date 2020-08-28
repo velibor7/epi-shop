@@ -14,7 +14,7 @@ import Login from "./auth/pages/Login";
 import Register from "./auth/pages/Register";
 import Cart from "./items/pages/Cart";
 import GlobalState from "./shared/context/GlobalState";
-
+import ItemDetail from "./items/components/ItemDetail";
 import "./App.css";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
@@ -40,8 +40,11 @@ const App = () => {
               <Route path="/" exact>
                 <Home />
               </Route>
+              <Route path="/items/:iid">
+                <ItemDetail />
+              </Route>
               <Route path="/new">
-                <NewItem></NewItem>
+                <NewItem />
               </Route>
               <Route path="/cart">
                 <Cart />
