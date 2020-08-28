@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 import Home from "./items/pages/Home";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
@@ -50,6 +55,7 @@ const App = () => {
               <Route path="/me">
                 <Me />
               </Route>
+              <Redirect to="/" />
             </Switch>
           </Router>
         </GlobalState>

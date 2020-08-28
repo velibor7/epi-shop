@@ -30,7 +30,7 @@ const createItem = async (req, res, next) => {
     description,
     price,
     category,
-    // image: req.file.path,
+    image: req.file.path,
   });
   console.log(newItem);
 

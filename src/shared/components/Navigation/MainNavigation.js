@@ -17,7 +17,7 @@ const MainNavigation = () => {
       {drawerIsOpen && <Backdrop onClick={closeDrawerHandler} />}
 
       <Drawer show={drawerIsOpen} onClick={closeDrawerHandler}>
-        <nav className="drawer__nav-links">
+        <nav className="main-navigation__drawer-nav-links">
           <Links></Links>
         </nav>
       </Drawer>

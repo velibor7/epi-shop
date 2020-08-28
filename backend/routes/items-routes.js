@@ -12,11 +12,7 @@ router.get("", itemsController.getItems);
 
 // router.use(checkAuth);
 
-router.post(
-  "/",
-  // fileUpload.single("image"),
-  itemsController.createItem
-);
+router.post("/", fileUpload.single("image"), itemsController.createItem);
 
 router.patch("/:iid", itemsController.updateItem);
 router.delete("/:iid", itemsController.deleteItem);

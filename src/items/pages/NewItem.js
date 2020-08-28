@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 
-import ImageUpload from "../../shared/components/FormElements/ImageUpload";
+import FileUpload from "../../shared/components/FormElements/FileUpload";
 
 import "./NewItem.css";
 
@@ -12,27 +12,29 @@ const NewItem = () => {
   return (
     <Formik
       initialValues={{
-        title: "some titel",
+        title: "some title",
         description: "some description",
         price: "54543",
         category: "skydiving",
+        image: "",
       }}
       onSubmit={(values) => {
+        const formData = new FormData();
+        formData.append("title", values.title);
+        formData.append("description", values.description);
+        formData.append("price", values.price);
+        formData.append("category", values.category);
+        formData.append("image", values.image);
+
         console.log(values);
         fetch("http://localhost:5000/api/items", {
           method: "POST",
           mode: "cors",
           headers: {
-            "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Headers": "*",
           },
-          body: JSON.stringify({
-            title: values.title,
-            description: values.description,
-            price: values.price,
-            category: values.category,
-          }),
+          body: formData,
         })
           .then((res) => {
             console.log(res.json());
@@ -62,6 +64,9 @@ const NewItem = () => {
           <option value="skydiving">Skydiving</option>
           <option value="snowboarding">Snowboarding</option>
         </Field>
+
+        <Field name="image" component={FileUpload}></Field>
+
         <button type="submit" className="new-item__submit">
           Add item
         </button>
