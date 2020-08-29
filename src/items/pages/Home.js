@@ -9,6 +9,7 @@ import { CartContext } from "../../shared/context/cart-context";
 //import { AuthContext } from "../../shared/context/auth-context";
 
 import "./Home.css";
+import Spinner from "../../shared/components/UIElements/Spinner";
 
 const Home = () => {
   const history = useHistory();
@@ -75,7 +76,6 @@ const Home = () => {
     <>
       {detailOpen && <Backdrop onClick={closeItemDetailHandler} />}
       <ItemDetail show={detailOpen} item={item}></ItemDetail>
-
       <ul className="home__items-list">
         {homeItems.map((item) => (
           <Item

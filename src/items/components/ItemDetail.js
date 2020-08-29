@@ -29,7 +29,7 @@ const ItemDetail = (props) => {
               <p>{props.item.title}</p>
               <p>{props.item.description}</p>
 
-              <p>{props.item.price}</p>
+              <p>${props.item.price}</p>
             </div>
           ) : (
             <div>Loading...</div>
