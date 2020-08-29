@@ -41,7 +41,7 @@ const App = () => {
                 <Home />
               </Route>
               <Route path="/items/:iid">
-                <ItemDetail />
+                <Home />
               </Route>
               <Route path="/new">
                 <NewItem />

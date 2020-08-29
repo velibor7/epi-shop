@@ -12,7 +12,7 @@ const Item = (props) => (
   <>
     <CartContext.Consumer>
       {(context) => (
-        <li className="item__li">
+        <li className="item__li" onClick={props.onOpen}>
           <Card className="item__card">
             <img
               src={`http://localhost:5000/${props.image}`}
