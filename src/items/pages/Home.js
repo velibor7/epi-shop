@@ -44,21 +44,6 @@ const Home = () => {
       });
   }, []);
 
-  /*
-  useEffect(() => {
-    fetch(`http://localhost:5000/api/items/${itemId}`, {
-      method: "GET",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then(async (res) => {
-      const resJson = await res.json();
-      console.log(resJson);
-    });
-  }, [itemId]);
-  */
-
   const closeItemDetailHandler = () => {
     setDetailOpen(false);
     history.push("/");
@@ -72,10 +57,32 @@ const Home = () => {
     history.push(`/items/${item.id}`);
   };
 
+  const deleteItemHandler = (id) => {
+    console.log("delete handler");
+    console.log("id", id);
+    fetch(`http://localhost:5000/api/items/${id}`, {
+      method: "DELETE",
+      headers: {
+        // "Content-Type": "application/json",
+        // "Authorization": "Bearer " + auth.token ?? smth like this
+      },
+    })
+      .then(() => {
+        setDetailOpen(false);
+        window.location.reload();
+        history.push("/");
+      })
+      .catch((e) => console.log(e));
+  };
+
   return (
     <>
       {detailOpen && <Backdrop onClick={closeItemDetailHandler} />}
-      <ItemDetail show={detailOpen} item={item}></ItemDetail>
+      <ItemDetail
+        show={detailOpen}
+        item={item}
+        onDelete={() => deleteItemHandler(item.id)}
+      />
       <ul className="home__items-list">
         {homeItems.map((item) => (
           <Item

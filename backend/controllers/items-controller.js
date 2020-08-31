@@ -16,8 +16,34 @@ const getItems = async (req, res, next) => {
   res.json({ items: items.map((item) => item.toObject({ getters: true })) });
 };
 
+const getItem = async (req, res, next) => {
+  const itemId = req.params.iid;
+
+  console.log(itemId);
+  let item;
+
+  try {
+    item = await Item.findById(itemId);
+    // console.log(item);
+  } catch (e) {
+    const err = new HttpError(
+      "Something went wrong, could not find item.",
+      500
+    );
+    return next(err);
+  }
+
+  if (!item) {
+    const err = new HttpError("Could not find item", 404);
+
+    return next(err);
+  }
+
+  res.json({ item: item.toObject({ getters: true }) });
+};
+
 const createItem = async (req, res, next) => {
-  // const errs = validationResult(req)
+  // const errs = validationResult(reqr)
 
   // if (!errs.isEmpty()) {
   // console.log(errs);
@@ -78,10 +104,12 @@ const updateItem = async (req, res, next) => {
 
 const deleteItem = async (req, res, next) => {
   const itemId = req.params.iid;
+  console.log(itemId);
 
   let item;
   try {
     item = await Item.findById(itemId);
+    console.log(item);
   } catch (e) {
     const err = new HttpError("Could not delete cocktail", 500);
     return next(err);
@@ -101,6 +129,7 @@ const deleteItem = async (req, res, next) => {
 };
 
 exports.getItems = getItems;
+exports.getItem = getItem;
 exports.createItem = createItem;
 exports.updateItem = updateItem;
 exports.deleteItem = deleteItem;

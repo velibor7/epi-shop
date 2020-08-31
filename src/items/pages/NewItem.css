@@ -11,6 +11,7 @@
 
 
 @media (min-width: 700px) {
-  width: 30em;
-
+  .new-item__form {
+    width: 40em;
+  }
 }

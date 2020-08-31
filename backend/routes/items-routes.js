@@ -9,6 +9,7 @@ const fileUpload = require("../middleware/file-upload");
 const router = express.Router();
 
 router.get("", itemsController.getItems);
+router.get("/:iid", itemsController.getItem);
 
 // router.use(checkAuth);
 

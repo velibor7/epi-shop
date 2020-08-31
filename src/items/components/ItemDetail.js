@@ -31,9 +31,9 @@ const ItemDetail = (props) => {
               <p>{props.item.description}</p>
 
               <p>${props.item.price}</p>
-              <div class="item-detail__actions">
+              <div className="item-detail__actions">
                 <Link to={`/update/${props.item.id}`}>Update</Link>
-                <Link to={`/update/${props.item.id}`}>Delete</Link>
+                <button onClick={props.onDelete}>DELETE</button>
               </div>
             </div>
           ) : (
