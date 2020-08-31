@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 
 import "./ItemDetail.css";
+import { Link } from "react-router-dom";
 
 const ItemDetail = (props) => {
   useEffect(() => {
@@ -30,6 +31,10 @@ const ItemDetail = (props) => {
               <p>{props.item.description}</p>
 
               <p>${props.item.price}</p>
+              <div class="item-detail__actions">
+                <Link to={`/update/${props.item.id}`}>Update</Link>
+                <Link to={`/update/${props.item.id}`}>Delete</Link>
+              </div>
             </div>
           ) : (
             <div>Loading...</div>

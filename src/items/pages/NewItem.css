@@ -1,4 +1,16 @@
-.no {
-  color: blue;
-  background-color: green;
+.new-item__form {
+  display       : flex;
+  flex-direction: column;
+  width         : 70%;
+  margin        : 0 auto;
+}
+
+.new-item__form * {
+  margin-bottom: .6em;
+}
+
+
+@media (min-width: 700px) {
+  width: 30em;
+
 }

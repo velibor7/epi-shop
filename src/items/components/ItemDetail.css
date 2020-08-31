@@ -1,5 +1,6 @@
 .item-detail {
     position        : fixed;
+    overflow        : scroll;
     right           : 0;
     top             : 0;
     z-index         : 100;
@@ -22,4 +23,13 @@
 .item-detail__img {
     width : 80%;
     height: auto;
+}
+
+.item-detail__actions {
+    display: flex;
+
+}
+
+.item-detail__actions a {
+    margin: 1em;
 }

@@ -52,7 +52,13 @@ const NewItem = () => {
         <Field id="title" type="text" name="title" />
 
         <label htmlFor="description"> Description</label>
-        <Field id="description" type="text" as="textarea" name="description" />
+        <Field
+          id="description"
+          type="text"
+          as="textarea"
+          name="description"
+          rows="20"
+        />
 
         <label htmlFor="price"> Price</label>
         <Field id="price" type="number" name="price" />
@@ -67,7 +73,7 @@ const NewItem = () => {
           <option value="skateboarding">Skateboarding</option>
           <option value="climbing">Climbing</option>
         </Field>
-
+        <label htmlFor="image">Please select an image: </label>
         <Field name="image" component={FileUpload}></Field>
 
         <button type="submit" className="new-item__submit">

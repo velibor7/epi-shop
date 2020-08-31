@@ -9,15 +9,18 @@ import {
 import Home from "./items/pages/Home";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import NewItem from "./items/pages/NewItem";
+import UpdateItem from "./items/pages/UpdateItem";
 import Me from "./auth/pages/Me";
 import Login from "./auth/pages/Login";
 import Register from "./auth/pages/Register";
 import Cart from "./items/pages/Cart";
 import GlobalState from "./shared/context/GlobalState";
-import ItemDetail from "./items/components/ItemDetail";
-import "./App.css";
+// import ItemDetail from "./items/components/ItemDetail";
+
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
+
+import "./App.css";
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
@@ -42,6 +45,9 @@ const App = () => {
               </Route>
               <Route path="/items/:iid">
                 <Home />
+              </Route>
+              <Route path="/update/:iid">
+                <UpdateItem />
               </Route>
               <Route path="/new">
                 <NewItem />
